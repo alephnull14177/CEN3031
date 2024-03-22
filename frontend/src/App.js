@@ -8,6 +8,7 @@ import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
 
 function App() {
+  document.title = "Downtown Volunteers"
   const { user } = useAuthContext()
 
   return (
