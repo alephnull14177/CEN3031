@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useAuthContext } from './hooks/useAuthContext'
-
+import { useEffect } from 'react'
 // pages & components
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -9,6 +9,9 @@ import Navbar from './components/Navbar'
 
 function App() {
   const { user } = useAuthContext()
+  useEffect(() => {
+    document.title = "Home | Downtown Volunteers"
+  });
 
   return (
     <div className="App">
