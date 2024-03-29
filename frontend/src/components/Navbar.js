@@ -17,7 +17,10 @@ const Navbar = () => {
     <header>
       <div className="container">
         <Link to="/">
-          <h1>Barber Scheduler</h1>
+          <h1>Home</h1>
+        </Link>
+        <Link to="/events">
+          <h1>Events</h1>
         </Link>
         <nav>
           {user && (
