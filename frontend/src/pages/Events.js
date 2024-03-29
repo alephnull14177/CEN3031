@@ -1,8 +1,6 @@
-import { useAuthContext } from "../hooks/useAuthContext";
 import { useEffect } from "react";
 
 const Events = () => {
-  const { user } = useAuthContext();
 
   useEffect(() => {
     document.title = "Events | Downtown Volunteers";

@@ -34,7 +34,7 @@ function App() {
             />
             <Route
               path="/Events"
-              element={user ? <Events /> : <Navigate to="/Events" />}
+              element={user ? <Events /> : <Navigate to="/" />}
             />
           </Routes>
         </div>
