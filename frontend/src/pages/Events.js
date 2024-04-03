@@ -1,31 +1,34 @@
+import React, { useState, useEffect } from "react";
+import EventForm from '../components/EventForm';
 import { useAuthContext } from "../hooks/useAuthContext";
-import { useEffect } from "react";
 
 const Events = () => {
   const { user } = useAuthContext();
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
     document.title = "Events | Downtown Volunteers";
-  });
+  }, []);
+
+  const addEvent = (newEvent) => {
+    setEvents((prevEvents) => [...prevEvents, newEvent]);
+  };
 
   return (
     <div className="events">
       <h2>Upcoming Events</h2>
       <div className="event-list">
-        <div className="event">
-          <h3>Event Title 1</h3>
-          <p>Date: March 30, 2024</p>
-          <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div className="event">
-          <h3>Event Title 2</h3>
-          <p>Date: April 5, 2024</p>
-          <p>Description: Nulla facilisi. Phasellus fermentum ex ac lectus fermentum, vel.</p>
-        </div>
-        {/* Add more events as needed */}
+        {events.map((event, index) => (
+          <div className="event" key={index}>
+            <h3>{event.title}</h3>
+            <p>Date: {event.date}</p>
+            <p>Description: {event.description}</p>
+          </div>
+        ))}
       </div>
+      {user && <EventForm addEvent={addEvent} />}
     </div>
   );
-}
+};
 
 export default Events;

@@ -10,8 +10,13 @@ a{
     color: black;
 }
 
-nav a, nav button{
+ nav button{
     margin-left: 10px;
+}
+
+/*Events link*/
+nav a{
+    margin-right: 10px;
 }
 
 
@@ -79,8 +84,4 @@ body.mission a{
     font-weight: bold;
     
 }
-
-
-
-
 

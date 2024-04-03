@@ -1,11 +1,9 @@
 
-import { useAuthContext } from "../hooks/useAuthContext"
 import { useEffect } from "react"
 
 
 
 const Home = () => {
-  const {user} = useAuthContext()
   useEffect(() => {
     document.title = "Home | Downtown Volunteers"
   });
@@ -39,7 +37,7 @@ const Home = () => {
            <br />
            <br />
            
-           <a href='https://www.pdgainesville.com/'>Project Downtown Gainesville</a>
+           <a href='https://www.pdgainesville.com/' target="_blank" rel="noopener noreferrer">Project Downtown Gainesville</a>
         </p>
       </body>
       <div className='DowntownLink'>
