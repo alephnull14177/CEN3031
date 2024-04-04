@@ -1,38 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+* {
+    font-family: Poppins;
+}
+
 /*navbar*/
 
-div.container{
+.navbar {
     text-align: center;
     background-color: rgb(216, 205, 190);
     
 }
 
-a{
+.navbar a{
     color: black;
 }
 
- nav button{
+.navbar a:hover {
+    color: white;
+}
+
+.navbar nav button{
     margin-left: 10px;
 }
 
 /*Events link*/
-nav a{
+.navbar nav a{
     margin-right: 10px;
 }
 
 
 /*pages*/
-body{
-    
+.home body{
     background-color: #ede5dd99;
 }
-form.login,form.signup{
-    
+
+.login,.signup{
     max-width: 400px;
     margin: 40px auto;
     padding: 20px;
     background-color: rgb(216, 205, 190);
     border-radius: 4px;
+}
 
+.login-admin, .signup-admin{
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(253, 0, 0, 0.45);
+    border-radius: 4px;
 }
 
 form button{

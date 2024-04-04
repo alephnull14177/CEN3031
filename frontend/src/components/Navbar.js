@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <div className="container">
+      <div className="navbar">
         <Link to="/">
           {!user ? <h1>Barber Scheduler</h1> : <h1>Home</h1>}
 

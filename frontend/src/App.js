@@ -6,6 +6,8 @@ import { useEffect } from 'react'
 // pages & components
 import Home from './pages/Home'
 import Login from './pages/Login'
+import AdminLogin from './pages/AdminLogin'
+import AdminSignup from './pages/AdminSignup'
 import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
 import Events from './pages/Events'
@@ -32,8 +34,16 @@ function App() {
               element={!user ? <Login /> : <Navigate to="/" />} 
             />
             <Route 
+              path="/admin-login" 
+              element={!user ? <AdminLogin /> : <Navigate to="/" />} 
+            />
+            <Route 
               path="/signup" 
               element={!user ? <Signup /> : <Navigate to="/" />} 
+            />
+             <Route 
+              path="/admin-signup" 
+              element={!user ? <AdminSignup /> : <Navigate to="/" />} 
             />
             <Route
               path="/Events"

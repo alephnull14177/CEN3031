@@ -16,8 +16,7 @@ const Signup = () => {
   }
 
   return (
-    <div className="signup">
-    <form className="signup-barber" onSubmit={handleSubmit}>
+    <form className="signup-admin" onSubmit={handleSubmit}>
       <h3 data-testid='signup-test'>Sign Up</h3>
       
       <label>Email address:</label>
@@ -41,12 +40,6 @@ const Signup = () => {
       <button disabled={isLoading} data-testid='button-test1'>Sign Up</button>
       {error && <div className="error" data-testid='error'>{error}</div>}
     </form>
-     <a href="/admin-signup">
-      <button>
-        Admin Signup
-      </button>
-     </a>
-    </div>
   )
 }
 
