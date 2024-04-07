@@ -18,6 +18,7 @@ const EventForm = ({ addEvent }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     addEvent(eventDetails);
     setEventDetails({
       title: "",
@@ -28,7 +29,7 @@ const EventForm = ({ addEvent }) => {
 
   return (
     <form className="create" onSubmit={handleSubmit}>
-      <h3>Add New Event</h3>
+      <h4>Add New Event</h4>
       
         <label>Event Title:</label>
           <input

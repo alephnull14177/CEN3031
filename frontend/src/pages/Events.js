@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import EventForm from '../components/EventForm';
+import EventForm from "../components/eventForm";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 const Events = () => {
@@ -26,6 +26,7 @@ const Events = () => {
           </div>
         ))}
       </div>
+      <br />
       {user && <EventForm addEvent={addEvent} />}
     </div>
   );
