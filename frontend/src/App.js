@@ -5,8 +5,8 @@ import { useEffect } from 'react'
 
 // pages & components
 import Home from './pages/Home'
+import AdminHome from './pages/AdminHome'
 import Login from './pages/Login'
-import AdminLogin from './pages/AdminLogin'
 import AdminSignup from './pages/AdminSignup'
 import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
@@ -29,13 +29,13 @@ function App() {
               path="/" 
               element={user ? <Home /> : <Navigate to="/login" />} 
             />
-            <Route 
-              path="/login" 
-              element={!user ? <Login /> : <Navigate to="/" />} 
+             <Route 
+              path="/admin" 
+              element={(user && user.isAdmin) ? <AdminHome /> : <Navigate to="/login" />} 
             />
             <Route 
-              path="/admin-login" 
-              element={!user ? <AdminLogin /> : <Navigate to="/" />} 
+              path="/login" 
+              element={!user ? <Login /> : (user.isAdmin ? <Navigate to="/admin" /> : <Navigate to="/" />)} 
             />
             <Route 
               path="/signup" 
@@ -43,7 +43,7 @@ function App() {
             />
              <Route 
               path="/admin-signup" 
-              element={!user ? <AdminSignup /> : <Navigate to="/" />} 
+              element={!user ? <AdminSignup /> : <Navigate to="/admin" />} 
             />
             <Route
               path="/Events"

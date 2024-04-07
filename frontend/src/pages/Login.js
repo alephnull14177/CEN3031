@@ -42,11 +42,6 @@ const Login = () => {
       <button disabled={isLoading} data-testid='button-test2'>Log In</button>
       {error && <div className="error" data-testid='error2'>{error}</div>}
     </form>
-     <a href="/admin-login">
-      <button>
-        Admin Login
-      </button>
-     </a>
     </div>
   )
   
