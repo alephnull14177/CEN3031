@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const validator = require('validator')
+require('dotenv').config()
 
 const Schema = mongoose.Schema
 
@@ -12,6 +13,10 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
+    required: true
+  },
+  isAdmin: {
+    type: Boolean,
     required: true
   }
 })
@@ -39,7 +44,39 @@ userSchema.statics.signup = async function(email, password) {
   const salt = await bcrypt.genSalt(10)
   const hash = await bcrypt.hash(password, salt)
 
-  const user = await this.create({ email, password: hash })
+  const user = await this.create({ email, password: hash, isAdmin: false})
+
+  return user
+}
+
+// static admin signup method
+userSchema.statics.adminSignup = async function(email, password, secret) {
+
+  // validation
+  if (!email || !password) {
+    throw Error('All fields must be filled')
+  }
+  if (!validator.isEmail(email)) {
+    throw Error('Email not valid')
+  }
+  if (!validator.isStrongPassword(password)) {
+    throw Error('Password not strong enough')
+  }
+
+  const exists = await this.findOne({ email })
+
+  if (exists) {
+    throw Error('Email already in use')
+  }
+
+  if(secret!=process.env.ADMIN_SECRET) {
+    throw Error('Wrong admin secret')
+  }
+
+  const salt = await bcrypt.genSalt(10)
+  const hash = await bcrypt.hash(password, salt)
+
+  const user = await this.create({ email, password: hash, isAdmin:true})
 
   return user
 }
