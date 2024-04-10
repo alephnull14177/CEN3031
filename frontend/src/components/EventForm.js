@@ -1,30 +1,41 @@
 import React, { useState } from "react";
+import { useEventsContext } from "../hooks/useEventContext";
 
 
 const EventForm = ({ addEvent }) => {
-  const [eventDetails, setEventDetails] = useState({
-    title: "",
-    date: "",
-    description: ""
-  });
+  const {dispatch} = useEventsContext()
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setEventDetails((prevDetails) => ({
-      ...prevDetails,
-      [name]: value
-    }));
-  };
+  const [title, setTitle] = useState('')
+  const [date, setDate] = useState('')
+  const [description, setDescription] = useState('')
+  const [error, setError] = useState(null)
 
-  const handleSubmit = (e) => {
+
+
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
-    addEvent(eventDetails);
-    setEventDetails({
-      title: "",
-      date: "",
-      description: ""
-    });
+    const event = {title, date, description}
+    
+    const response = await fetch('/api/events', {
+      method: 'POST',
+      body: JSON.stringify(event),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const json = await response.json()
+
+    if (!response.ok) {
+      setError(json.error)
+    }
+    if (response.ok) {
+      setError(null)
+      setTitle('')
+      setDate('')
+      setDescription('')
+      dispatch({type: 'CREATE_EVENT', payload: json})
+    }
   };
 
   return (
@@ -35,8 +46,8 @@ const EventForm = ({ addEvent }) => {
           <input
             type="text"
             name="title"
-            value={eventDetails.title}
-            onChange={handleInputChange}
+            value={title}
+            onChange={(e)=>setTitle(e.target.value)}
             required
           />
         
@@ -44,20 +55,21 @@ const EventForm = ({ addEvent }) => {
           <input
             type="date"
             name="date"
-            value={eventDetails.date}
-            onChange={handleInputChange}
+            value={date}
+            onChange={(e)=>setDate(e.target.value)}
             required
           />
        
         <label>Event Description:</label>
           <textarea
             name="description"
-            value={eventDetails.description}
-            onChange={handleInputChange}
+            value={description}
+            onChange={(e)=>setDescription(e.target.value)}
             required
           ></textarea>
         
         <button type="submit">Add Event</button>
+        {error && <div className="error">{error}</div>}
       </form>
   );
 };

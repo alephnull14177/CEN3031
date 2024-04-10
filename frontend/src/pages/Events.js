@@ -1,35 +1,44 @@
-import React, { useState, useEffect } from "react";
-import EventForm from "../components/eventForm";
+import React, { useEffect } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useEventsContext } from "../hooks/useEventContext";
+
+//components
+import EventDetails from "../components/eventDetails"
+import EventForm from "../components/eventForm";
 
 const Events = () => {
   const { user } = useAuthContext();
-  const [events, setEvents] = useState([]);
+  const {events, dispatch} = useEventsContext()
 
   useEffect(() => {
     document.title = "Events | Downtown Volunteers";
-  }, []);
+    const fetchEvents = async()=>{
+      const response = await fetch('/api/events')
+      const json = await response.json()
 
-  const addEvent = (newEvent) => {
-    setEvents((prevEvents) => [...prevEvents, newEvent]);
-  };
+      if (response.ok){
+          dispatch({type: 'SET_EVENTS', payload: json})
+      }
+    }
+    fetchEvents()
+  }, [dispatch])
+
+  
+
+  
 
   return (
-    <div className="events">
-      <h2>Upcoming Events</h2>
-      <div className="event-list">
-        {events.map((event, index) => (
-          <div className="event" key={index}>
-            <h3>{event.title}</h3>
-            <p>Date: {event.date}</p>
-            <p>Description: {event.description}</p>
-          </div>
+    <div className="Events">
+      <div className="events">
+        {events && events.map((event)=>(
+          <EventDetails event = {event} key={event._id}  />
         ))}
       </div>
-      <br />
-      {user && <EventForm addEvent={addEvent} />}
+     {user.isAdmin && <EventForm />}
     </div>
   );
 };
 
 export default Events;
+
+
