@@ -41,12 +41,15 @@
     border-radius: 4px;
 }
 
-.login-admin, .signup-admin{
+.login-admin,.signup-admin{
     max-width: 400px;
     margin: 40px auto;
     padding: 20px;
     background-color: rgb(216, 205, 190);
     border-radius: 4px;
+}
+.signup-barber{
+    margin-left: 10px;
 }
 
 form button{
@@ -147,7 +150,7 @@ body.mission a{
   box-sizing: border-box;
 }
 
-form button {
+.create button {
     border: 0;
     color: black;
     padding: 10px;
