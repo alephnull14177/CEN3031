@@ -6,7 +6,7 @@ import { useEffect } from "react"
 const Home = () => {
   useEffect(() => {
     document.title = "Home | Downtown Volunteers"
-  });
+  },[]);
   return (
     <div className="home">
       <h2>About Us</h2>

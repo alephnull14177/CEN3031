@@ -4,7 +4,7 @@ import { useEffect } from "react"
 const Login = () => {
   useEffect(() => {
     document.title = "Login | Downtown Volunteers"
-  });
+  },[]);
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
