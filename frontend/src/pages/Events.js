@@ -4,7 +4,7 @@ import { useEventsContext } from "../hooks/useEventContext";
 
 //components
 import EventDetails from "../components/eventDetails"
-import EventForm from "../components/eventForm";
+import EventForm from "../components/EventForm";
 
 const Events = () => {
   const { user } = useAuthContext();

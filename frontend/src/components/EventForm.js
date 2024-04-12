@@ -7,6 +7,7 @@ const EventForm = ({ addEvent }) => {
 
   const [title, setTitle] = useState('')
   const [date, setDate] = useState('')
+  const [time, setTime] = useState('')
   const [description, setDescription] = useState('')
   const [error, setError] = useState(null)
 
@@ -15,7 +16,7 @@ const EventForm = ({ addEvent }) => {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    const event = {title, date, description}
+    const event = {title, date, time, description}
     
     const response = await fetch('/api/events', {
       method: 'POST',
@@ -33,6 +34,7 @@ const EventForm = ({ addEvent }) => {
       setError(null)
       setTitle('')
       setDate('')
+      setTime('')
       setDescription('')
       dispatch({type: 'CREATE_EVENT', payload: json})
     }
@@ -59,14 +61,23 @@ const EventForm = ({ addEvent }) => {
             onChange={(e)=>setDate(e.target.value)}
             required
           />
+
+        <label>Time:</label>
+          <input
+            type="time"
+            name="time"
+            value={time}
+            onChange={(e)=>setTime(e.target.value)}
+            required
+          />
        
-        <label>Event Description:</label>
-          <textarea
+        <label>Description: </label>
+          <input
             name="description"
             value={description}
             onChange={(e)=>setDescription(e.target.value)}
             required
-          ></textarea>
+          ></input>
         
         <button type="submit">Add Event</button>
         {error && <div className="error">{error}</div>}
