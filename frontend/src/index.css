@@ -4,12 +4,19 @@
     font-family: Poppins;
 }
 
+  
 /*navbar*/
 
 .navbar {
     text-align: center;
     background-color: rgb(216, 205, 190);
     
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    color: #fff; 
+
 }
 
 .navbar a{
@@ -23,10 +30,22 @@
     text-decoration: underline;
 }
 
-.navbar nav button, a{
-    margin-left: 10px;
-    margin-right: 10px;
+.navbar nav span {
+    margin-right: 1rem; 
 }
+
+.navbar h1 {
+    margin: 0;
+}
+
+.navbar nav button {
+    background-color: #007bff; 
+    color: #fff; 
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
 
 /*pages*/
 .home div{
