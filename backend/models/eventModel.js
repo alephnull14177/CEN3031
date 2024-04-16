@@ -18,10 +18,6 @@ const eventSchema = new Schema({
     description: {
         type: String,
         required: true
-    },
-    volunteers: {
-        type: Number,
-        required: false
     }
 }, {timestamps: true})
 

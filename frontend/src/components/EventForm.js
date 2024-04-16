@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEventsContext } from "../hooks/useEventContext";
 
 
-const EventForm = () => {
+const EventForm = ({ addEvent }) => {
   const {dispatch} = useEventsContext()
 
   const [title, setTitle] = useState('')
@@ -16,7 +16,7 @@ const EventForm = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    const event = {title, date, description, volunteers: 0}
+    const event = {title, date, time, description}
     
     const response = await fetch('/api/events', {
       method: 'POST',
@@ -36,8 +36,6 @@ const EventForm = () => {
       setDate('')
       setTime('')
       setDescription('')
-      
-       
       dispatch({type: 'CREATE_EVENT', payload: json})
     }
   };
@@ -79,7 +77,8 @@ const EventForm = () => {
             value={description}
             onChange={(e)=>setDescription(e.target.value)}
             required
-          ></textarea>
+          ></input>
+        
         <button type="submit">Add Event</button>
         {error && <div className="error">{error}</div>}
       </form>

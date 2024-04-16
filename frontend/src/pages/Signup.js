@@ -40,9 +40,9 @@ const Signup = () => {
       <br />
       <button disabled={isLoading} data-testid='button-test1'>Sign Up</button>
       {error && <div className="error" data-testid='error'>{error}</div>}
-    </form >
+    </form>
      <a href="/admin-signup">
-      <button className="admin-sign"> 
+      <button>
         Admin Signup
       </button>
      </a>

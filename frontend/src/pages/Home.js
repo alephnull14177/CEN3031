@@ -11,7 +11,7 @@ const Home = () => {
     <div className="home">
       <h2>About Us</h2>
 
-      <div className="about">
+      <body className="about">
         
       <p>
             Inspired by the Project Downtown Gainesville Nonprofit Organization,
@@ -22,9 +22,9 @@ const Home = () => {
           </p>
         
 
-      </div>
+      </body>
       <h2>Our Mission</h2>
-      <div className="mission">
+      <body className="mission">
       <p>Project Downtown Gainesville wants to 
           spread the message of hope and compassion. 
           We believe that a single action can make a 
@@ -39,7 +39,7 @@ const Home = () => {
            
            <a href='https://www.pdgainesville.com/' target="_blank" rel="noopener noreferrer">Project Downtown Gainesville</a>
         </p>
-      </div>
+      </body>
       <div className='DowntownLink'>
         </div>
     </div>
