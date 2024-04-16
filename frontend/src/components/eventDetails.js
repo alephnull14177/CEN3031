@@ -3,8 +3,7 @@ import { useEventsContext } from "../hooks/useEventContext"
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { useState } from "react"
 
-// date fns
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+
 
 
 const EventDetails = ({event})=>{

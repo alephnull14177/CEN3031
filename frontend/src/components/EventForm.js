@@ -16,7 +16,7 @@ const EventForm = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    const event = {title, date, description, volunteers: 0}
+    const event = {title, date, time, description, volunteers: 0}
     
     const response = await fetch('/api/events', {
       method: 'POST',
@@ -79,7 +79,7 @@ const EventForm = () => {
             value={description}
             onChange={(e)=>setDescription(e.target.value)}
             required
-          ></textarea>
+          ></input>
         <button type="submit">Add Event</button>
         {error && <div className="error">{error}</div>}
       </form>

@@ -27,11 +27,11 @@ const getEvent = async(req,res)=>{
 //creating a new event
 const createEvent = async(req, res)=>{
 
-    const{title, date, description, volunteers} = req.body;
+    const{title, date, time, description, volunteers} = req.body;
 
     //add event to db
     try{
-        const event = await Event.create({title, date, description, volunteers})
+        const event = await Event.create({title, date, time, description, volunteers})
         res.status(200).json(event)
     } catch(error){
         res.status(400).json({error: error.message})
