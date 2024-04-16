@@ -48,7 +48,7 @@
 
 
 /*pages*/
-.home body{
+.home div{
     background-color: #ede5dd99;
 }
 
@@ -67,11 +67,11 @@
     background-color: rgb(216, 205, 190);
     border-radius: 4px;
 }
-.signup-barber{
+.signup-barber {
     margin-left: 10px;
 }
 
-form button{
+form button, .admin-sign {
     cursor: pointer;
 }
 div.error {
@@ -90,7 +90,7 @@ background-color: rgb(193, 214, 221);
 
 /*Home Page*/
 
-body.about{
+div.about{
     text-align: center;
     text-decoration: none;
     background-color: rgb(216, 205, 190);
@@ -101,7 +101,7 @@ body.about{
     
     
 }
-body.mission{
+div.mission{
     text-align: center;
     text-decoration: none;
     background-color: rgb(216, 205, 190);
@@ -112,7 +112,7 @@ body.mission{
     
 
 }
-body.mission a{
+div.mission a{
     text-align: center;
     color: brown;
     margin: 20px;
@@ -147,16 +147,17 @@ body.mission a{
     font-size: 0.9em;
     color: black;
   }
-  .event-details span {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+  .event-details span  {
+    margin-right: 10px;
     cursor: pointer;
     background: #f1f1f1;
     padding: 6px;
     border-radius: 50%;
     color: black;
-  }
+
+  
+}
+  
 
 /*Event form */
 .create input{
