@@ -7,7 +7,6 @@ const EventForm = () => {
 
   const [title, setTitle] = useState('')
   const [date, setDate] = useState('')
-  const [time, setTime] = useState('')
   const [description, setDescription] = useState('')
   const [error, setError] = useState(null)
 
@@ -34,7 +33,6 @@ const EventForm = () => {
       setError(null)
       setTitle('')
       setDate('')
-      setTime('')
       setDescription('')
       
        
@@ -63,23 +61,15 @@ const EventForm = () => {
             onChange={(e)=>setDate(e.target.value)}
             required
           />
-
-        <label>Time:</label>
-          <input
-            type="time"
-            name="time"
-            value={time}
-            onChange={(e)=>setTime(e.target.value)}
-            required
-          />
        
-        <label>Description: </label>
-          <input
+        <label>Event Description:</label>
+          <textarea
             name="description"
             value={description}
             onChange={(e)=>setDescription(e.target.value)}
             required
           ></textarea>
+
         <button type="submit">Add Event</button>
         {error && <div className="error">{error}</div>}
       </form>

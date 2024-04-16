@@ -9,6 +9,9 @@ const Navbar = () => {
     logout()
   }
 
+ 
+  
+
   return (
     <header>
       <div className="navbar">
