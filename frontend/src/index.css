@@ -71,9 +71,6 @@
     background-color: rgb(216, 205, 190);
     border-radius: 4px;
 }
-.signup-barber {
-    margin-left: 10px;
-}
 
 form button, .admin-sign {
     cursor: pointer;
@@ -94,7 +91,7 @@ background-color: rgb(193, 214, 221);
 
 /*Home Page*/
 
-div.about{
+div.about, .about p{
     text-align: center;
     text-decoration: none;
     background-color: rgb(216, 205, 190);
@@ -105,7 +102,7 @@ div.about{
     
     
 }
-div.mission{
+div.mission, .mission p{
     text-align: center;
     text-decoration: none;
     background-color: rgb(216, 205, 190);
