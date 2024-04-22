@@ -10,7 +10,7 @@ const Home = () => {
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWzwk1Z25v1Xw1Ws6h2QXfGQoaMDDnUOijJLLDk94xFw&s" alt="Logo"
             className="logo" style={{ height: "150px", width: "auto" }} />
       <div className="section">
-        <h2 style={styles.sectionTitle}>About Us - Admin Page</h2>
+        <h2 style={styles.sectionTitle}>About Us</h2>
         <p style={styles.paragraph}>
           Inspired by the Project Downtown Gainesville Nonprofit Organization,
           we desire to provide a platform for volunteers to help those in need.
