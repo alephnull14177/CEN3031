@@ -24,12 +24,10 @@ const Events = () => {
   }, [dispatch])
 
   
-
-  
-
   return (
     <div className="Events">
       <div className="events">
+        <h1> Events:  </h1>
         {events && events.map((event)=>(
           <EventDetails event = {event} key={event._id}  />
         ))}
