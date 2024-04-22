@@ -95,12 +95,6 @@ body {
     transform: scale(1.05);
 }
 
-.signup-barber button:disabled,
-.login-barber button:disabled,
-.admin-signup-button:disabled {
-    background-color: #adb5bd;
-    cursor: not-allowed;
-}
 
 .admin-signup-button {
     margin-top: 10px;
@@ -150,16 +144,7 @@ input:focus {
     background-color: #f1f1f1;
 }
 
-/* Home Page */
-div.about,
-div.mission {
-    text-align: center;
-    background-color: #f8f9fa;
-    margin: 20px;
-    padding: 20px;
-    font-weight: bold;
-    font-size: smaller;
-}
+
 
 div.mission a {
     color: brown;

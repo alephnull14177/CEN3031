@@ -37,7 +37,7 @@ const signupUser = async (req, res) => {
   }
 }
 
-// signup a user
+// signup a admin
 const signupAdmin = async (req, res) => {
   const {email, password, secret} = req.body
 
