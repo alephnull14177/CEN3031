@@ -45,44 +45,52 @@ const EventForm = () => {
   return (
     <form className="create" onSubmit={handleSubmit}>
       <h4>Add New Event</h4>
-      
+      <div>
         <label>Event Title:</label>
-          <input
-            type="text"
-            name="title"
-            value={title}
-            onChange={(e)=>setTitle(e.target.value)}
-            required
-          />
-        
+        <br />
+        <input
+          type="text"
+          name="title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+      </div>
+      <div>
         <label>Date:</label>
-          <input
-            type="date"
-            name="date"
-            value={date}
-            onChange={(e)=>setDate(e.target.value)}
-            required
-          />
-
+        <br />
+        <input
+          type="date"
+          name="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          required
+        />
+      </div>
+      <div>
         <label>Time:</label>
-          <input
-            type="time"
-            name="time"
-            value={time}
-            onChange={(e)=>setTime(e.target.value)}
-            required
-          />
-       
-        <label>Description: </label>
-          <input
-            name="description"
-            value={description}
-            onChange={(e)=>setDescription(e.target.value)}
-            required
-          ></input>
-        <button type="submit">Add Event</button>
-        {error && <div className="error">{error}</div>}
-      </form>
+        <br />
+        <input
+          type="time"
+          name="time"
+          value={time}
+          onChange={(e) => setTime(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Description:</label>
+        <br />
+        <input
+          name="description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
+      </div>
+      <button type="submit">Add Event</button>
+      {error && <div className="error">{error}</div>}
+    </form>
   );
 };
 

@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from '../hooks/useAuthContext'
+
+
 const Navbar = () => {
   const { logout } = useLogout()
   const { user } = useAuthContext()
@@ -11,7 +13,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <div className="navbar">
+      <div className="navbar" style={{ backgroundColor: '#889992' }}>
         <Link to="/">
           {!user ? <h1>Barber Scheduler</h1> : <h1>Home</h1>}
 
