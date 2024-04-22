@@ -16,7 +16,7 @@ const EventForm = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    const event = {title, date, time, description, volunteers: 0}
+    const event = {title, date, time, description, volunteers: []}
     
     const response = await fetch('/api/events', {
       method: 'POST',

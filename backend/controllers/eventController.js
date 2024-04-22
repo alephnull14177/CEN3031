@@ -63,6 +63,7 @@ const deleteEvent = async(req, res) =>{
 const updateEvent = async(req,res)=>{
     const {id} = req.params
 
+
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({error: 'No such event'})
     }
@@ -77,10 +78,45 @@ const updateEvent = async(req,res)=>{
     res.status(200).json(event)
 }
 
+//RSVP to an event
+const rsvpEvent = async(req, res) =>{
+    const {id} = req.params
+    const {userId} = req.body
+
+
+    try{
+        const event = await Event.findByIdAndUpdate({_id:id}, 
+            {$addToSet: {volunteers: userId}}, {new: true})
+
+        res.status(200).json(event)
+
+    }catch(error){
+        res.status(400).json({error: error.message})
+    }
+}
+
+//cancel RSVP 
+const cancelRsvp = async(req,res)=>{
+    const {id} = req.params
+    const {userId} = req.body
+    try{
+        
+        const event = await Event.findByIdAndUpdate({_id:id}, 
+            {$pullAll :{volunteers: userId}}, {new: true})
+            
+        res.status(200).json(event)
+    }catch(error){
+        res.status(400).json({error: error.message})
+    }
+
+}
+
 module.exports = {
     createEvent,
     getEvents,
     getEvent,
     deleteEvent,
-    updateEvent
+    updateEvent, 
+    rsvpEvent,
+    cancelRsvp
 }

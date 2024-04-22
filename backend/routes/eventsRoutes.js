@@ -3,7 +3,9 @@ const {
     getEvents,
     getEvent,
     deleteEvent,
-    updateEvent
+    updateEvent,
+    rsvpEvent,
+    cancelRsvp
 
 
 } = require('../controllers/eventController')
@@ -23,6 +25,10 @@ router.post('/', createEvent);
 router.delete('/:id', deleteEvent);
 
 //update an event
-router.patch('/:id', updateEvent);
+//router.patch('/:id/admin', updateEvent);
+
+router.patch('/:id/rsvp',rsvpEvent )
+
+router.patch('/:id/cancel', cancelRsvp)
 
 module.exports = router;
