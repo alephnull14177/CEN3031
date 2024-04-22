@@ -18,9 +18,14 @@ const Signup = () => {
 
   return (
     <form className="signup-admin" onSubmit={handleSubmit}>
-      <h3 data-testid='signup-test'>Sign Up</h3>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWzwk1Z25v1Xw1Ws6h2QXfGQoaMDDnUOijJLLDk94xFw&s" alt="Logo"
+                  className="logo" />
+              </div>
+              <h3 data-testid='signup-test' style={{ textAlign: 'center', marginTop: '15px', marginBottom: '5px' }}>Sign Up</h3>
+      <h3 data-testid='signup-test'>  </h3>
       
-      <label>Email address:</label>
+      <label>Email address:  </label>
       <input 
         data-testid='emailTest'
         type="email" 
@@ -29,7 +34,7 @@ const Signup = () => {
       />
       <br />
       <br />
-      <label>Password:</label>
+      <label>Password:  </label>
       <input 
         data-testid='passTest'
         type="password" 
@@ -38,7 +43,7 @@ const Signup = () => {
       />
       <br />
       <br />
-      <label>Secret:</label>
+      <label>Secret:  </label>
       <input 
         data-testid='secretTest'
         type="secret" 

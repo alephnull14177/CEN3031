@@ -1,40 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
 
 * {
-    font-family: Poppins;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-  
-/*navbar*/
+body {
+    background-color: #f8f9fa;
+}
 
+/* Navbar */
 .navbar {
     text-align: center;
-    background-color: rgb(216, 205, 190);
-    
+    background-color: #f8f9fa;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    color: #fff; 
-
+    color: #000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar a{
-    color: black;
+.navbar a {
+    color: #000;
     text-decoration: none;
-
 }
 
 .navbar a:hover {
-    color: white;
+    color: #1a7260c7;
     text-decoration: underline;
 }
 
 .navbar nav span {
-    margin-right: 1rem; 
+    margin-right: 1rem;
 }
 
-.navbar nav div a{
+.navbar nav div a {
     padding: 5px;
 }
 
@@ -43,38 +46,96 @@
 }
 
 .navbar nav button {
-    background-color: #007bff; 
-    color: #fff; 
+    background-color: #cc00ff;
+    color: #fff;
     border: none;
     padding: 0.5rem 1rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
+.navbar nav button:hover {
+    background-color: #0056b3;
+}
 
-/*pages*/
-.home div{
+/* Pages */
+.home div {
     background-color: #ede5dd99;
 }
 
-.login,.signup{
+.login,
+.signup,
+.login-admin,
+.signup-admin {
     max-width: 400px;
     margin: 40px auto;
     padding: 20px;
-    background-color: rgb(216, 205, 190);
+    background-color: #fff;
     border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-
-.login-admin,.signup-admin{
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: rgb(216, 205, 190);
+.admin-signup-button,
+.signup-barber button,
+.login-barber button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
     border-radius: 4px;
-}
-
-form button, .admin-sign {
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
+.signup-barber button:hover,
+.login-barber button:hover,
+.admin-signup-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.signup-barber button:disabled,
+.login-barber button:disabled,
+.admin-signup-button:disabled {
+    background-color: #adb5bd;
+    cursor: not-allowed;
+}
+
+.admin-signup-button {
+    margin-top: 10px;
+    background-color: #ffc107;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.admin-signup-button:hover {
+    background-color: #ffb800;
+    transform: scale(1.05);
+}
+
+.admin-signup-button:disabled {
+    background-color: #c79100;
+    cursor: not-allowed;
+}
+.login-button:hover,
+.signup-button:hover,
+.admin-signup-button:hover {
+    background-color: #0056b3; /* Darker purple on hover */
+    transform: scale(1.05); /* Scale effect on hover */
+}
+.login-button:disabled,
+.signup-button:disabled,
+.admin-signup-button:disabled {
+    background-color: #adb5bd; /* Gray for disabled state */
+    cursor: not-allowed;
+}
+
 div.error {
     padding: 10px;
     background: #ffefef;
@@ -84,106 +145,102 @@ div.error {
     margin: 20px 0;
 }
 
-/*input boxes change color when clicked*/
-input:focus{
-background-color: rgb(193, 214, 221);
+/* Input boxes change color when clicked */
+input:focus {
+    background-color: #f1f1f1;
 }
 
-/*Home Page*/
-
-div.about, .about p{
+/* Home Page */
+div.about,
+div.mission {
     text-align: center;
-    text-decoration: none;
-    background-color: rgb(216, 205, 190);
+    background-color: #f8f9fa;
     margin: 20px;
     padding: 20px;
     font-weight: bold;
-    font-size: small;
-    
-    
+    font-size: smaller;
 }
-div.mission, .mission p{
-    text-align: center;
-    text-decoration: none;
-    background-color: rgb(216, 205, 190);
-    margin: 20px;
-    padding: 20px;
-    font-weight: bold;
-    font-size: small;
-    
 
-}
-div.mission a{
-    text-align: center;
+div.mission a {
     color: brown;
-    margin: 20px;
-    padding: 20px;
     font-weight: bold;
-    
 }
 
-/*Events page*/
-.Events{
+/* Events page */
+.Events {
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 100px;
 }
 
-/*Event*/
+/* Event */
 .event-details {
-    background: rgb(216, 205, 190);
+    background: #fff;
     border-radius: 4px;
     margin: 20px auto;
     padding: 20px;
     position: relative;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-  }
-  .event-details h4 {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.event-details:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.event-details h4 {
     margin: 0 0 10px 0;
     font-size: 1.2em;
-    color: black;
-  }
-  .event-details p {
+    color: #333;
+}
+
+.event-details p {
     margin: 0;
     font-size: 0.9em;
-    color: black;
-  }
-  .event-details span  {
+    color: #666;
+}
+
+.event-details span {
     margin-right: 10px;
     cursor: pointer;
     background: #f1f1f1;
     padding: 6px;
     border-radius: 50%;
-    color: black;
-
-  
-}
-  
-
-/*Event form */
-.create input{
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
+    color: #333;
 }
 
-.create button {
-    border: 0;
-    color: black;
-    padding: 10px;
-    font-family: "Poppins";
-    border-radius: 4px;
-    cursor: pointer;
+.title {
+    text-align: center;
+}
+.signup,
+.signup-admin,
+.login {
+    background-color: #f0f0f0; /* Light gray background color */
+}
+.signup-admin input,
+.signup-barber input,
+.login-barber input {
+    background-color: #fff; /* White background color for input fields */
+}
+
+.logo {
+    width: 150px; /* Initial width of the image */
+    transition: transform 0.5s, width 0.5s; /* Smooth transition for transform and width changes */
   }
-  div.error {
-    padding: 10px;
-    background: #ffefef;
-    border: 1px solid red;
-    color: red;
-    border-radius: 4px;
-    margin: 20px 0;
+  
+.logo:hover {
+    transform: scale(1.20); /* Enlarge the image by 10% on hover */
+    filter: drop-shadow(2px 2px 4px rgba(79, 26, 26, 0.3)); /* Add a drop shadow */
   }
+
+ 
+  
+
+
+
+
+
+
+
+
