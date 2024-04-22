@@ -95,12 +95,6 @@ body {
     transform: scale(1.05);
 }
 
-.signup-barber button:disabled,
-.login-barber button:disabled,
-.admin-signup-button:disabled {
-    background-color: #adb5bd;
-    cursor: not-allowed;
-}
 
 .admin-signup-button {
     margin-top: 10px;
