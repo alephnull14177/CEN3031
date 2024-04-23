@@ -83,14 +83,15 @@ const rsvpEvent = async(req, res) =>{
     const {id} = req.params
     const {userId} = req.body
 
-
     try{
+
         const event = await Event.findByIdAndUpdate({_id:id}, 
             {$addToSet: {volunteers: userId}}, {new: true})
 
         res.status(200).json(event)
 
     }catch(error){
+        
         res.status(400).json({error: error.message})
     }
 }
@@ -99,6 +100,7 @@ const rsvpEvent = async(req, res) =>{
 const cancelRsvp = async(req,res)=>{
     const {id} = req.params
     const {userId} = req.body
+
     try{
         
         const event = await Event.findByIdAndUpdate({_id:id}, 

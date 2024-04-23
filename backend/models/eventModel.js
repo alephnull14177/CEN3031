@@ -20,8 +20,10 @@ const eventSchema = new Schema({
         required: true
     },
     volunteers: [{
-        type: Schema.Types.ObjectId,
-        ref: 'User'
+        //type: Schema.Types.ObjectId,
+        //ref: 'User'
+        type: String,
+        required: false
     }]
 }, {timestamps: true})
 
