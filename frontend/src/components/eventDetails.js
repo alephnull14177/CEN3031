@@ -3,24 +3,33 @@ import { useEventsContext } from "../hooks/useEventContext"
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { useEffect, useState } from "react"
 
-
-
-
 const EventDetails = ({event})=>{
     const {user} = useAuthContext()
     const {dispatch} = useEventsContext()
+    const [numVol, setNumVol] = useState(event.volunteers.length)
+    const [isRSVPED, setIsRSVPED] = useState(event.volunteers.includes(user.token))
     
-    const [isRSVPED, setIsRSVPED] = useState(false)
-    
+    //useEffect(()=>{
+        //setNumVol(event.volunteers.length)
+        //setIsRSVPED(event.volunteers.includes(user.token))
+    //},[event.volunteers, user.token])
+
+    useEffect(() => {
+        // Get the count value from local storage when the component mounts
+        const storedNumVol = localStorage.getItem('numVol');
+        const storedIsRSVPED = localStorage.getItem('isRSVPED');
+        if (storedNumVol && storedIsRSVPED) {
+            setNumVol(numVol)
+            setIsRSVPED(isRSVPED)
+        }
+      }, []);
+
     useEffect(()=>{
-        setIsRSVPED(event.volunteers.includes(user._id))
-    },[event.volunteers, user._id])
+        localStorage.setItem('numVol', numVol);
+        localStorage.setItem('isRSVPED', isRSVPED);
+    },[numVol, isRSVPED])
 
-
-
-
-    
-
+    console.log('START:', numVol)
 
     const handleClickDelete = async()=>{
         const response = await fetch('/api/events/' + event._id, {
@@ -35,20 +44,23 @@ const EventDetails = ({event})=>{
     }
     
     const handleClickAdd = async() =>{
+        //console.log("token is ", user.token)
         const response = await fetch('/api/events/' + event._id + '/rsvp', {
             method: 'PATCH',
             headers:{
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({userId: user._id}),
+            body: JSON.stringify({userId: user.token}),
         
         })
 
         const json = await response.json()
+        console.log('ADD:', numVol)
 
         if (response.ok){
             dispatch({type: 'RSVP_EVENT', payload: json})
             setIsRSVPED(true)
+            setNumVol(numVol+1)
         }
     }
 
@@ -58,18 +70,21 @@ const EventDetails = ({event})=>{
             headers:{
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({userId: user._id}),
+            body: JSON.stringify({userId: [user.token]}),
         
         })
 
         const json = await response.json()
+        console.log('DELETE:', numVol)
 
         if (response.ok){
             dispatch({type: 'CANCEL_RSVP', payload: json})
             setIsRSVPED(false)
+            setNumVol(numVol-1)
         }
     }
     
+    //console.log("is he in? ", event.volunteers.includes(user.token))
     
     return(
       
@@ -78,7 +93,7 @@ const EventDetails = ({event})=>{
             <p><strong>Date: </strong>{new Date(event.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
             <p><strong>Time: </strong>{event.time}</p>
             <p><strong>Description: </strong>{event.description}</p>
-            <p><strong>Volunteers: </strong>{event.volunteers.length}</p>
+            <p><strong>Volunteers: </strong>{numVol}</p>
             <p>Posted {formatDistanceToNow(new Date(event.createdAt), { addSuffix: true })}</p>
             <br /> 
            {user.isAdmin && <span className = "material-symbols-outlined" onClick={handleClickDelete}>delete</span>}
