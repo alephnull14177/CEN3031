@@ -7,12 +7,7 @@ const EventDetails = ({event})=>{
     const {user} = useAuthContext()
     const {dispatch} = useEventsContext()
     const [numVol, setNumVol] = useState(event.volunteers.length)
-    const [isRSVPED, setIsRSVPED] = useState(event.volunteers.includes(user.token))
-    
-    //useEffect(()=>{
-        //setNumVol(event.volunteers.length)
-        //setIsRSVPED(event.volunteers.includes(user.token))
-    //},[event.volunteers, user.token])
+    const [isRSVPED, setIsRSVPED] = useState(event.volunteers.includes(user.email))
 
     useEffect(() => {
         // Get the count value from local storage when the component mounts
@@ -50,7 +45,7 @@ const EventDetails = ({event})=>{
             headers:{
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({userId: [user.token]}),
+            body: JSON.stringify({userId: [user.email]}),
         
         })
 
@@ -72,7 +67,7 @@ const EventDetails = ({event})=>{
             headers:{
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({userId: [user.token]}),
+            body: JSON.stringify({userId: [user.email]}),
         
         })
 
