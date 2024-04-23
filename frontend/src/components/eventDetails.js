@@ -22,7 +22,7 @@ const EventDetails = ({event})=>{
             setNumVol(numVol)
             setIsRSVPED(isRSVPED)
         }
-      }, []);
+      }, [numVol, isRSVPED]);
 
     useEffect(()=>{
         localStorage.setItem('numVol', numVol);
@@ -50,7 +50,7 @@ const EventDetails = ({event})=>{
             headers:{
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({userId: user.token}),
+            body: JSON.stringify({userId: [user.token]}),
         
         })
 
@@ -65,6 +65,8 @@ const EventDetails = ({event})=>{
     }
 
     const handleClickCancel = async() =>{
+        
+        
         const response = await fetch('/api/events/' + event._id + '/cancel', {
             method: 'PATCH',
             headers:{
@@ -82,6 +84,8 @@ const EventDetails = ({event})=>{
             setIsRSVPED(false)
             setNumVol(numVol-1)
         }
+        
+       
     }
     
     //console.log("is he in? ", event.volunteers.includes(user.token))
