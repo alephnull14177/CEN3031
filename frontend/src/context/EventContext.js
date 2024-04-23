@@ -1,5 +1,4 @@
 import { createContext, useReducer } from "react";  
-import Events from "../pages/Events";
 export const EventsContext = createContext();
 
 
@@ -33,8 +32,7 @@ export const eventsReducer = (state, action) => {
             return{
                 events: state.events.map((e)=>{
                     if(e._id === action.payload._id){
-                        const updatedVolunteers = e.volunteers.filter((volunteerId) => volunteerId !== action.payload.userId);
-                            return { ...e, volunteers: updatedVolunteers };
+                        return action.payload
                     }
                     return e
                 })

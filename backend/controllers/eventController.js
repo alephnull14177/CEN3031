@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 //getting all events
 const getEvents = async(req,res)=>{
-    const events = await Event.find({}).sort({createdAt: +1})
+    const events = await Event.find({}).sort({createdAt: -1})
     res.status(200).json(events)
 }
 
